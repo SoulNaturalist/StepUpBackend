@@ -1,7 +1,12 @@
+import logging
 from db import *
 from models import *
-from fastapi import FastAPI, Response, status
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Response, status, Request
+
+logger = logging.getLogger("step_up_application")
 
 
 origins = [

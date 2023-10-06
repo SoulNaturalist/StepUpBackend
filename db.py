@@ -10,7 +10,7 @@ credentials = {
         "user": os.getenv('user'),
         "password": os.getenv('password'),
         "database": os.getenv('database'),
-        "host": "127.0.0.1",
+        "host": os.getenv('host'),
 }
 
 
