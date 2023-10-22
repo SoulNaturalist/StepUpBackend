@@ -10,6 +10,10 @@ class LoginUserData(BaseModel):
     email: str
     password: str
 
+class StepsData(BaseModel):
+    count_steps: int
+
+
 class LogConfig(BaseModel):
 
     LOGGER_NAME: str = "step_up_application"

@@ -37,6 +37,14 @@ async def login_endpoint(login_data: LoginUserData,response: Response):
 
 @app.post("/register", status_code=201)
 async def register_endpoint(user_data: UserData):
-    message_dict = {True:"User registered", False:"User not registered", None:"User not registered"}
+    register_response = {True:"User registered", False:"User not registered", None:"User not registered"}
     created = await create_user(user_data.name, user_data.password, user_data.email)
-    return {"message": message_dict[bool(created)]}
+    return {"message": register_response[bool(created)]}
+
+
+@app.post("/added_steps", status_code=201)
+async def step_endpoint(steps_data: StepsData):
+    #added check auth and write id to added_steps
+    steps_response = {True:"Steps added", False:"Steps not added"}
+    steps = await added_steps(1, steps_data.count_steps)
+    return {"message": steps_response[steps]}

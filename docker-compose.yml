@@ -10,8 +10,8 @@ services:
       POSTGRES_DB: "stepup"
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres  
-       - /tables/users.sql:/docker-entrypoint-initdb.d/init.sql
+       - ./db/users.sql:/docker-entrypoint-initdb.d/1-init.sql
+       - ./db/steps.sql:/docker-entrypoint-initdb.d/2-init.sql 
     ports:
       - "5432:5432"
     networks:
